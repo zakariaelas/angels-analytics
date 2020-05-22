@@ -47,7 +47,7 @@ Under the root folder of the project, you might notice the following files:
 
 I am aware that this is only an exercise to get a brief idea about my React skills, and that this write up might not be necessary, but I feel like this could help you understand why I did some things the way I did ... so please just bear with me 😆.
 
-This metrics dashboard was built with an idea in mind: that it is a small part of a much **larger** project. This is the main assumption I have made while working on this exercise. I hope that this somewhat explains the list of dependencies discussed below:
+This metrics dashboard was built with this idea in mind: the exercise is a small part of a much **larger** project. This is the main assumption I have made while working on this.
 
 ### Dependencies
 
@@ -55,7 +55,7 @@ I would also like to allocate some time to talk about some of the dependencies a
 
 ### [Material UI](https://material-ui.com/)
 
-As a react library that is based on Material Design, I really enjoy using it because of the freedom it offers. I can use the UI components that come with the library, go for my own components, or even customize the one that come with the library without much trouble. I also enjoy the fact that they do not rely on any style sheets. Styles are injected using jss, and there a many different ways to override the default styles. It is also one of my favorite documentations out there.
+As a react library that is based on Material Design, I really enjoy using it because of the freedom it offers. I can use the UI components that come with the library, go for my own components, or even customize the one that come with the library without much trouble. I also enjoy the fact that they do not rely on any style sheets. Styles are injected using jss, and there a many different ways to override the default styles. It is also one of my favorite documentations out there. Leveraging this library, I was able to make the app **reponsive** on smaller devices.
 
 ### [Material UI Pickers](https://material-ui-pickers.dev/)
 
@@ -75,7 +75,7 @@ Personally my first time using this library. I always came across reselect while
 
 ### [React-Table v7](https://github.com/tannerlinsley/react-table)
 
-React-table v7 is a "headless" table library for react. The headless part means that it is entirely customizable. Developers are responsible for how the tables' UI. I enjoy using it because it allows me to use the material-ui table components. The library provides mechanisms for filtering, sorting, paginating, etc. In this project, I have used it to make the tables sortable and paginated. As opposed to the sample application provided, I prefer to use pagination for better user experience instead of rendering all rows at once.
+React-table v7 is a "headless" table library for react. The headless part means that it is entirely customizable. Developers are responsible for the tables' UI. I enjoy using it because it allows me to use the material-ui table components. The library provides mechanisms for filtering, sorting, paginating, etc. In this project, I have used it to make the tables sortable and paginated. As opposed to the sample application provided, I prefer to use pagination for better user experience instead of rendering all rows at once.
 
 ### [query-string](https://github.com/sindresorhus/query-string)
 
