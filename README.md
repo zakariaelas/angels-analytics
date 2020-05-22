@@ -1,68 +1,97 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SpotAngels Analytics Dashboard
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Use git in order to clone this repository locally
 
-### `npm start`
+with HTTPS:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+git clone https://github.com/CLEDeveloppers/kudos.git
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+with [SSH](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account) (recommended):
 
-### `npm test`
+```
+git clone git@github.com:zakariaelas/kudos.git
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Once in the project directory, you will need to install all dependencies by running the following command:
 
-### `npm run build`
+```
+npm install
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before starting the app, you will need to create a `.env` file containing the following lines:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+REACT_APP_URL=api_url
+REACT_APP_USERNAME=username
+REACT_APP_PASSWORD=password
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once that done, you can then run the following to start the app:
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Development Environment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Under the root folder of the project, you might notice the following files:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `.eslintrc.json`: Used to define a set of linting rules throughout the project. Personally, just like most people, I just use the airbnb eslint config.
+- `.prettierrc`: Used to define the code formatting rules to be enforced throughout the project. Once again, nothing crazy, but feel free to take a look at the file if you're interested.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Approach
 
-## Learn More
+I am aware that this is only an exercise to get a brief idea about my React skills, and that this write up might not be necessary, but I feel like this could help you understand why I did some things the way I did ... so please just bear with me 😆.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This metrics dashboard was built with an idea in mind: that it is a small part of a much **larger** project. This is the main assumption I have made while working on this exercise. I hope that this somewhat explains the list of dependencies discussed below:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Dependencies
 
-### Code Splitting
+I would also like to allocate some time to talk about some of the dependencies and libraries used, as well as the reason why I chose to use them.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### [Material UI](https://material-ui.com/)
 
-### Analyzing the Bundle Size
+As a react library that is based on Material Design, I really enjoy using it because of the freedom it offers. I can use the UI components that come with the library, go for my own components, or even customize the one that come with the library without much trouble. I also enjoy the fact that they do not rely on any style sheets. Styles are injected using jss, and there a many different ways to override the default styles. It is also one of my favorite documentations out there.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### [Material UI Pickers](https://material-ui-pickers.dev/)
 
-### Making a Progressive Web App
+This library builds on top of material-ui and exposes date and time pickers. I am using it because the ones that ship with "vanilla" material-ui are not so great. They rely on the default date and time inputs. However, from my experience, I have encountered some issues with the library, that fortunately, will be fixed in v3.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### [Formik](https://jaredpalmer.com/formik/)
 
-### Advanced Configuration
+A popular form management library that I have used before to manage forms throughout my application. It keeps your components concise and clean, without having to repeatedly creating your own state, adding input event handlers, and validating your forms. Formik takes all of that away from us and handles it under the hood.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### [Redux](https://redux.js.org/) + [React-Redux](https://react-redux.js.org/)
 
-### Deployment
+I must admit that looking at this particular exercise, and IT **only**. One could definitely argue that redux is an **overkill**. However, as I have mentioned before, the idea is that this is typically part of a larger project. I also believe that in the sample application provided, redux was used (not entirely sure tho). Personally, I also wanted to use this opportunity to get acquainted with the new hooks API. I wanted to see the differences between it and the usual `connect` + `mapState/DispatchToProps`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### [Reselect](https://github.com/reduxjs/reselect)
 
-### `npm run build` fails to minify
+Personally my first time using this library. I always came across reselect while reading the react-redux documentation, so I wanted to give the library a try in this project. The main advantage reselect offers is efficiency through memoization. Selectors are typically ran every time an action is dispatched, which might cause performance issues. So the idea is to use these more "sophisticated" selectors that can be memoized and save performance.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### [React-Table v7](https://github.com/tannerlinsley/react-table)
+
+React-table v7 is a "headless" table library for react. The headless part means that it is entirely customizable. Developers are responsible for how the tables' UI. I enjoy using it because it allows me to use the material-ui table components. The library provides mechanisms for filtering, sorting, paginating, etc. In this project, I have used it to make the tables sortable and paginated. As opposed to the sample application provided, I prefer to use pagination for better user experience instead of rendering all rows at once.
+
+### [query-string](https://github.com/sindresorhus/query-string)
+
+For parsing and stringifying URLs as the API exposed makes use of query params.
+
+### [moment](https://momentjs.com/)
+
+For data parsing and validation.
+
+## Improvements
+
+A couple of improvements I think would make my version better:
+
+- ~~_Better form validation with yup_: Instead of using the `minDate` prop on the `MuiKeyboadDatePickerFormik` component to make sure the `endDate` is always after the `startDate`. It would be better to enforce this through yup, the form validation library. A bug that needs fixing is the following: when `endDate` and `startDate` are the same, `endTime` can be set _before_ `startTime`. Luckily, this does not cause the API to crash or whatever, and will only need fixing client-side using yup validation.~~
+- _Better way to handle the export to csv feature_: More on this [here]()
+
+### Wrap up
+
+Looking at the length of this file .. maybe this was a stretch and totally unnecessary 🤦‍♂️. Nevertheless, please let me know about what you think. I would love to discuss things with you.

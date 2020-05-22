@@ -14,11 +14,14 @@ export function fetchSessions(filters) {
         url: process.env.REACT_APP_URL,
         query: filters,
       });
+      const token = btoa(
+        `${process.env.REACT_APP_USERNAME}:${process.env.REACT_APP_PASSWORD}`,
+      );
       const request = await axios({
         method: 'GET',
         url,
         headers: {
-          Authorization: `Basic ${process.env.REACT_APP_SECRET}`,
+          Authorization: `Basic ${token}`,
         },
       });
       return dispatch({

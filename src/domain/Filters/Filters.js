@@ -7,8 +7,8 @@ import { Box, Grid, Button, makeStyles } from '@material-ui/core';
 import { Formik, Form } from 'formik';
 import MuiKeyboardTimePickerFormik from '../../components/MuiKeyboardTimePickerFormik';
 import MuiKeyboardDatePickerFormik from '../../components/MuiKeyboardDatePickerFormik';
-import * as yup from 'yup';
 import MuiFormikTextField from '../../components/MuiFormikTextField';
+import validationSchema from './filtersValidationSchema';
 
 const useStyles = makeStyles((theme) => ({
   flex: {
@@ -16,31 +16,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
 }));
-
-//validation schema to be used with formik.
-//It can be improved by making sure the end date and time are never before the start date and time
-//I am not very familiar with yup aside from the relatively simple use cases
-//However, it is a powerful library, and I should definitely read more about it..
-const validationSchema = yup.object().shape({
-  startDate: yup
-    .date()
-    .nullable()
-    .required('You need to choose a valid date'),
-  startTime: yup
-    .date()
-    .nullable()
-    .required('You need to choose a valid start time.'),
-  endDate: yup
-    .date()
-    .nullable()
-    .required('You need to choose a valid date'),
-  endTime: yup
-    .date()
-    .required('You need to choose a valid end time')
-    .nullable(),
-  zoneNumber: yup.string(),
-  licensePlate: yup.string(),
-});
 
 const Filters = (props) => {
   const classes = useStyles();

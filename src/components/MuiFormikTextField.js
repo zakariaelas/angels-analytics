@@ -10,7 +10,7 @@ import { TextField } from '@material-ui/core';
 const MuiFormikTextField = ({ name, ...props }) => {
   //makes use of formik v2 useField hook.
   //Another alternative is to use formik's Field component.
-  const [field, meta, helpers] = useField(name);
+  const [field, meta] = useField(name);
   return (
     <>
       <TextField
