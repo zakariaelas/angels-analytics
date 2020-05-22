@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { config } from '../../config';
 import qs from 'query-string';
 import { saveAs } from 'file-saver';
 
@@ -8,7 +7,7 @@ import { saveAs } from 'file-saver';
 export async function exportToCSV(filters) {
   try {
     const url = qs.stringifyUrl({
-      url: config.url,
+      url: process.env.REACT_APP_URL,
       query: { ...filters, csv: true },
     });
     const response = await axios({
@@ -16,7 +15,7 @@ export async function exportToCSV(filters) {
       url,
       responseType: 'blob',
       headers: {
-        Authorization: `Basic ${config.credentials}`,
+        Authorization: `Basic ${process.env.REACT_APP_SECRET}`,
       },
     });
     const filename =

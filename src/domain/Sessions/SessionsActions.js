@@ -5,21 +5,20 @@ import {
 } from '../../app/actionTypes';
 import axios from 'axios';
 import qs from 'query-string';
-import { config } from '../../config';
 
 export function fetchSessions(filters) {
   return async function (dispatch) {
     try {
       dispatch({ type: SEARCH_SESSIONS_REQUEST });
       const url = qs.stringifyUrl({
-        url: config.url,
+        url: process.env.REACT_APP_URL,
         query: filters,
       });
       const request = await axios({
         method: 'GET',
         url,
         headers: {
-          Authorization: `Basic ${config.credentials}`,
+          Authorization: `Basic ${process.env.REACT_APP_SECRET}`,
         },
       });
       return dispatch({
