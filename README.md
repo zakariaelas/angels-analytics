@@ -7,13 +7,13 @@ Use git in order to clone this repository locally
 with HTTPS:
 
 ```
-git clone https://github.com/CLEDeveloppers/kudos.git
+git clone https://github.com/zakariaelas/angels-analytics.git
 ```
 
-with [SSH](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account) (recommended):
+with SSH:
 
 ```
-git clone git@github.com:zakariaelas/kudos.git
+git clone git@github.com:zakariaelas/angels-analytics.git
 ```
 
 Once in the project directory, you will need to install all dependencies by running the following command:
