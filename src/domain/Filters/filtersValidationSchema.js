@@ -11,19 +11,16 @@ yup.addMethod(yup.date, 'endDateTimeGreater', function () {
         const startDate = moment(this.resolve(yup.ref('startDate')));
         const startTime = moment(this.resolve(yup.ref('startTime')));
         const endTime = moment(this.resolve(yup.ref('endTime')));
-        console.log(startDate, startTime, endTime, value);
         const startDateTime = startDate
           .hours(startTime.hours())
           .minutes(startTime.minutes());
         const endDateTime = moment(value)
           .hours(endTime.hours())
           .minutes(endTime.minutes());
-        console.log('eval', startDateTime.isBefore(endDateTime));
         return (
           startDateTime.isBefore(endDateTime) || this.createError()
         );
       } catch (err) {
-        console.log(err);
         return this.createError();
       }
     },
