@@ -90,7 +90,7 @@ For data parsing and validation.
 A couple of improvements I think would make my version better:
 
 - ~~_Better form validation with yup_: Instead of using the `minDate` prop on the `MuiKeyboadDatePickerFormik` component to make sure the `endDate` is always after the `startDate`. It would be better to enforce this through yup, the form validation library. A bug that needs fixing is the following: when `endDate` and `startDate` are the same, `endTime` can be set _before_ `startTime`. Luckily, this does not cause the API to crash or whatever, and will only need fixing client-side using yup validation.~~
-- _Better way to handle the export to csv feature_: More on this [here]()
+- _Better way to handle the export to csv feature_: More on this [here](https://github.com/zakariaelas/angels-analytics/blob/master/src/domain/Filters/Filters.js#L31).
 
 ### Wrap up
 
