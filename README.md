@@ -55,7 +55,7 @@ I would also like to allocate some time to talk about some of the dependencies a
 
 ### [Material UI](https://material-ui.com/)
 
-As a react library that is based on Material Design, I really enjoy using it because of the freedom it offers. I can use the UI components that come with the library, go for my own components, or even customize the one that come with the library without much trouble. I also enjoy the fact that they do not rely on any style sheets. Styles are injected using jss, and there a many different ways to override the default styles. It is also one of my favorite documentations out there. Leveraging this library, I was able to make the app **reponsive** on smaller devices.
+As a react library that is based on Material Design, I really enjoy using it because of the freedom it offers. I can use the UI components that come with the library, go for my own components, or even customize the one that come with the library without much trouble. I also enjoy the fact that they do not rely on any style sheets. Styles are injected using jss, and there a many different ways to override the default styles. It is also one of my favorite documentations out there. Leveraging this library, I was able to make the app **responsive** on smaller devices.
 
 ### [Material UI Pickers](https://material-ui-pickers.dev/)
 
